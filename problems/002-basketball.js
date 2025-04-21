@@ -16,7 +16,23 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    let team1 = 0;
+    let team2 = 0;
+    points.forEach((point) => {
+        let newArr = point.split("-");
+        team1 += +newArr[0];
+        team2 += +newArr[1];
+    });
+    if (team1 > team2) {
+        return 1;
+    }
+    if (team1 < team2) {
+        return 2;
+    } else {
+        return undefined;
+    }
 }
+
+console.log(getWinner(["36-32", "32-24", "20-28", "30-26"]));
 
 module.exports = getWinner;
