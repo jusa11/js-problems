@@ -12,8 +12,13 @@
  * @param {number[]} b
  * @returns {number[]}
  */
+
 function union(a, b) {
-    return undefined;
+    return [...a]
+        .sort((a, b) => a - b)
+        .filter((num, index, arr) => num !== arr[index + 1])
+        .filter((num) => b.includes(num));
 }
+console.log(union([1, 1, 3, 2, 5], [5, 3, 7, 7]));
 
 module.exports = union;
