@@ -19,7 +19,10 @@
  * второй элемент – Катей, третий – Сережей
  */
 function computeOrizurus(total) {
-    return undefined;
+    const piterAndSergey = total / 6;
+    const katya = piterAndSergey * 4;
+    return [piterAndSergey, katya, piterAndSergey];
 }
 
+computeOrizurus(24);
 module.exports = computeOrizurus;
