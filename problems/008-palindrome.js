@@ -13,7 +13,19 @@
  * @returns {boolean}
  */
 function isPalindrome(value) {
-    return undefined;
+    const toArr = value.split("");
+    let left = 0;
+    let right = toArr.length - 1;
+
+    while (left < right) {
+        if (toArr[left] !== toArr[right]) return false;
+
+        left++;
+        right--;
+    }
+    return true;
 }
+
+console.log(isPalindrome("true"));
 
 module.exports = isPalindrome;
