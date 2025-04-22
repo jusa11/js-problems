@@ -14,10 +14,16 @@
  */
 function isPalindrome(value) {
     const toArr = value.split("");
-    let count = toArr.length;
+    let left = 0;
+    let right = toArr.length - 1;
 
-    toArr.forEach((el) => (el !== toArr[count - 1] ? false : count--));
-    return count === 0 ? true : false;
+    while (left < right) {
+        if (toArr[left] !== toArr[right]) return false;
+
+        left++;
+        right--;
+    }
+    return true;
 }
 
 console.log(isPalindrome("true"));
