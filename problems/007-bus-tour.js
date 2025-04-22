@@ -12,7 +12,10 @@
  * @returns {undefined|number}
  */
 function checkBusTour(bridges) {
-    return -1;
+    const numberBridge = bridges.findIndex((bridge) => bridge <= 512);
+    return numberBridge === -1 ? undefined : numberBridge + 1;
 }
+
+console.log(checkBusTour([600, 1024]));
 
 module.exports = checkBusTour;
