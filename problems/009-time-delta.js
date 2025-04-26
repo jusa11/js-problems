@@ -17,17 +17,13 @@
  * @returns {number} разница между x и y в секундах
  */
 function getTimeDelta(x, y) {
-    const newX = x.split(":");
-    const newY = y.split(":");
-
-    const totalTime =
-        newY[0] * 3600 +
-        newY[1] * 60 +
-        +newY[2] -
-        (newX[0] * 3600 + newX[1] * 60 + +newX[2]);
-
-    console.log(totalTime);
-    return totalTime;
+    const toSeconds = (timeStr) => {
+        return timeStr
+            .split(":")
+            .map(Number)
+            .reduce((acc, time, index) => acc + time * [3600, 60, 1][index], 0);
+    };
+    return toSeconds(y) - toSeconds(x);
 }
 
 getTimeDelta("01:01:01", "02:02:02");
