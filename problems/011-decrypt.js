@@ -15,8 +15,33 @@
  * @param {string} secret
  * @returns {string}
  */
+
 function decrypt(secret) {
-    return undefined;
+    let i = 0;
+    let str = "";
+
+    do {
+        let code = secret.charCodeAt(i);
+
+        if (code === 32) {
+            str += String.fromCharCode(code);
+        } else {
+            if (code === 97) {
+                str += String.fromCharCode(122);
+            }
+            if (code === 122) {
+                str += String.fromCharCode(97);
+            } else {
+                str += String.fromCharCode(code + 1);
+            }
+        }
+
+        i++;
+    } while (secret.length > i);
+
+    return str;
 }
+
+console.log(decrypt("zmc vd hfmnqd rozbdr"));
 
 module.exports = decrypt;

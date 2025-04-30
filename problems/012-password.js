@@ -18,7 +18,15 @@
  * @returns {boolean}
  */
 function validatePassword(password) {
-    return undefined;
+    if (password.length < 7) {
+        return false;
+    }
+    const hasLower = /[a-z]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasDigit = /[0-9]/.test(password);
+
+    return hasLower && hasUpper && hasDigit;
 }
 
+console.log(validatePassword("abc4DEFG"));
 module.exports = validatePassword;
