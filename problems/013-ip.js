@@ -19,7 +19,16 @@
  * @returns {boolean}
  */
 function isIpValid(address) {
-    return undefined;
+    const numbers = address.split(".");
+
+    if (numbers.length !== 4) return false;
+
+    return numbers.every((num) => {
+        const n = Number(num)
+        return !isNaN(n) && Number(num) <= 255 && Number(num) >= 0;
+    });
 }
+
+console.log(isIpValid("255.000.255.0255"));
 
 module.exports = isIpValid;
