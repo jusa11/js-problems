@@ -13,7 +13,26 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    return -1;
+    let personNumber;
+    let age = -1;
+
+    list.forEach((person, index) => {
+        if (person.gender === "Male" && person.age > age) {
+            personNumber = index;
+            age = person.age;
+        }
+    });
+
+    return age > 0 ? personNumber + 1 : undefined;
 }
+
+console.log(
+    census([
+        { age: 39, gender: "Male" },
+        { age: 4, gender: "Female" },
+        { age: 40, gender: "Female" },
+        { age: 38, gender: "Male" },
+    ])
+);
 
 module.exports = census;
