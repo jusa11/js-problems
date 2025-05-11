@@ -12,7 +12,9 @@
  * @param {{age: number, gender: string}[]} list
  * @returns {undefined|number}
  */
-function census(list) {
+
+// Itterative approach
+/* function census(list) {
     let personNumber;
     let age = -1;
 
@@ -24,6 +26,22 @@ function census(list) {
     });
 
     return age > 0 ? personNumber + 1 : undefined;
+} */
+
+// Declarative approach
+function census(list) {
+    const result = list.reduce(
+        (acc, person, index) => {
+            if (person.age > acc.maxAge && person.gender === "Male") {
+                acc.maxAge = person.age;
+                acc.personNumber = index + 1;
+            }
+            return acc;
+        },
+        { maxAge: -1, personNumber: undefined }
+    );
+
+    return result.personNumber !== undefined ? result.personNumber : undefined;
 }
 
 console.log(
