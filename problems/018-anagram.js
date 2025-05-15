@@ -15,7 +15,14 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    return undefined;
+    if (x === "" || y === "") return false;
+
+    const sortX = x.toLocaleLowerCase().split("").sort();
+    const sortY = y.toLocaleLowerCase().split("").sort();
+
+    return sortX.join() === sortY.join();
 }
+
+console.log(anagram("Волос", "Слово"));
 
 module.exports = anagram;
