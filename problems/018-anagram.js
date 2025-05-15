@@ -15,35 +15,14 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    if (x.length !== y.length) {
-        return false;
-    }
-    if (x === "" || y === "") {
-        return false;
-    }
-    const wordX = x.toLocaleLowerCase().split("");
-    const wordY = y.toLocaleLowerCase().split("");
-    let res = true;
+    if (x === "" || y === "") return false;
 
-    wordX.forEach((letterX, index) => {
-        const countLetterX = wordX.filter((el) => el === letterX);
-        const countLetterY = wordY.filter((el) => el === letterX);
-   
-        if (countLetterX.length !== countLetterY.length) {
-            res = false;
-            return;
-        }
+    const sortX = x.toLocaleLowerCase().split("").sort();
+    const sortY = y.toLocaleLowerCase().split("").sort();
 
-        const checkLetterX = wordY.includes(letterX);
-        const checkLetterY = wordX.includes(wordY[index]);
-        if (!checkLetterX || !checkLetterY) {
-            res = false;
-        }
-    });
-
-    return res;
+    return sortX.join() === sortY.join();
 }
 
-console.log(anagram("11222", "11122"));
+console.log(anagram("Волос", "Слово"));
 
 module.exports = anagram;
