@@ -19,6 +19,7 @@ function anagram(x, y) {
 
     const sortX = x.toLocaleLowerCase().split("").sort();
     const sortY = y.toLocaleLowerCase().split("").sort();
+    console.log(sortX.join());
 
     return sortX.join() === sortY.join();
 }
