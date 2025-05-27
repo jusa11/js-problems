@@ -10,7 +10,27 @@
  * @returns {string}
  */
 function rle(value) {
-    return undefined;
+    const arr = value.split("");
+
+    let count = 1;
+    let newArr = [];
+
+    arr.forEach((el, index) => {
+        if (el === arr[index + 1]) {
+            count += 1;
+        } else if (count > 1) {
+            newArr.push(count + el);
+            count = 1;
+        } else {
+            newArr.push(el);
+        }
+    });
+
+    return newArr.join("");
 }
+
+console.log(rle("AAABC"));
+console.log(rle("aAAaaB"));
+console.log(rle("false"));
 
 module.exports = rle;
